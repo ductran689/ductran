@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+    li{
+        cursor: pointer;
+    }
+}
+.body{
+    width: 100vw;
+    .container-fluid{
+        margin:0 15px;
+       
+    }
+    ul{
+        list-style: none;
+    }
+    
+    .container{
+        margin: 0 15px;
+        padding-bottom:40px ;
+       
+    }
+    .section-container{
+        &:not(:last-child) {
+            border-bottom: 1px solid rgba($color: white, $alpha: 0.5);
+        }
+    }
+}

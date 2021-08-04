@@ -1,0 +1,27 @@
+*{
+    --mainBgColor: #3b3a3a;
+    --textCl:rgb(211, 194, 170);
+    --h1Cl:rgb(255, 255, 255);
+    --h2Cl:rgba(248, 212, 159, 1);
+    --hCl: rgb(247, 240, 230);
+
+
+    /* variable for responsive */
+    --fz-text: 16px;
+    --fz-h1:40px;
+    
+
+    /*GRID - media queries breakpoints*/
+
+}
+$xxs-min: 576px; // CÓ THỂ TÙY CHỈNH
+$xs-min: 768px; // KHÔNG THAY ĐỔI
+$sm-min: 992px; // KHÔNG THAY ĐỔI
+$md-min: 1200px; // KHÔNG THAY ĐỔI
+$lg-min: 1600px; // CÓ THỂ TÙY CHỈNH
+
+$xxs-max: ($xxs-min - 1); // Small Mobile
+$xs-max: ($xs-min - 1); // Mobile
+$sm-max: ($sm-min - 1); // Tablet
+$md-max: ($md-min - 1); // Desktop
+$lg-max: ($lg-min - 1); // Large Desktop
