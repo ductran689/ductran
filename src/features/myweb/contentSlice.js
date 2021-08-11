@@ -1,6 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { nanoid } from "@reduxjs/toolkit";
-import {gsap} from 'gsap'
+import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { gsap } from 'gsap';
+
+
+
+// mediaquery
 
 
 const contentSlice =createSlice({
@@ -12,7 +15,7 @@ const contentSlice =createSlice({
                 //title: 'project 1',
                 img: '/images/Wooder.JPG',
                 title: 'Wooder landing page',
-                content:'This is my very first front-end product landing page when I started learning and working with CFD',
+                content:'This is my very first front-end product landing page when I started learning and working with CFD, I excelled my ability to use HTML, SCSS, Javascript and Grunt here',
                 isHover: false,
             },
             {
@@ -27,12 +30,7 @@ const contentSlice =createSlice({
             
         ],
         menu: [
-            {
-                id: nanoid(),
-                isHover: false,
-                title: 'About',
-                class: 'about'
-            },
+            
             {
                 id: nanoid(),
                 isHover: false,
@@ -62,7 +60,7 @@ const contentSlice =createSlice({
 
             },
         ],
-        flag: false,
+        flag: true,
         edus:[
             {
                 id: nanoid(),
@@ -84,8 +82,8 @@ const contentSlice =createSlice({
                 time2:'Present',
                 company: 'Teresa Tran & Associates',
                 position: 'Telecommunication Support Engineer',
-                task: 'During the time working for this small business, I enhanced my ability to install and work with both computer’s hardware and software (Xero, MYOB) for our working system. I also obtained “can do” proactive attitude and improved my troubleshooting skills by successfully setup CCTV system for internal and external security for office first time by myself. In addition, my communication skills also excelled thank for working in this professional environment.'
-    
+                task: 'During the time working for this small business, I enhanced my ability to install and work with both computer’s hardware and software (Xero, MYOB) for our working system. I also obtained “can do” proactive attitude and improved my troubleshooting skills by successfully setup CCTV system for internal and external security for office first time by myself. In addition, my communication skills also excelled thank for working in this professional environment.',
+               
             },
             {
                 id: 12,
@@ -103,11 +101,15 @@ const contentSlice =createSlice({
                 position: 'Telecommunication Technician (level4)',
                 task: 'Being the first place where I gained my professional working experience in Australia. Being alone at sites for installing and maintaining gave me a hand to improve my self-discipline and ability to work alone. In addition, working as an technician assisted me to acquire more technical skills for both software and hardware (install hardware and configure new telecommunication system for telecom towers and shelters)'
             }
-        ]
+        ],
+        
     },
     reducers:{
         changeFlag1: (state) => {
             state.flag = true
+        },
+        toggleFlag:(state)=>{
+            state.flag = !state.flag
         },
 
         // projects hover
@@ -145,39 +147,80 @@ const contentSlice =createSlice({
 
             })
         },
-        rightAppear: () => {
-            gsap.to('.App',{overflow:'unset'})
+
+        rightAppear: (state,action) => {
+            
+            gsap.to('.App',{overflow:'scroll',height:'auto'})
             gsap.to('.menu1',1,{marginLeft:'-100%'})
-            gsap.to('.intro',1,{marginTop:'-100%'})
-            gsap.to('.des',.5,{opacity:0})
+           // gsap.to('.intro',1,{marginTop:'-100%'})
+            gsap.to('.des',.5,{display:'none'})
+
             
             gsap.to('.ava-corner',1,{delay:1,marginTop:'5%'})
             
             const tl =gsap.timeline() 
            tl
-           .to('.main',1,{marginLeft:'15%'})
-            .to('.menu2',1,{marginLeft:'2%',delay:0.5,opacity:1})
+           .to('.ava-name',.5,{y:'-900px'})
+           .to('.main',.7,{marginLeft:'15%'})
+            .to('.menu2',.7,{marginLeft:0,opacity:1})
             
            
 
 
         },
-        rightAppearMobile: () => {
-            gsap.to('.App',{overflow:'unset'})
-           // gsap.to('.menu1',1,{marginLeft:'-100%'})
-            gsap.to('.intro',1,{marginTop:'-100%'})
-            gsap.to('.des',.5,{opacity:0})
+        rightDisAppear: () => {
+            gsap.to('.App',{overflow:'hidden',height:'100vh'})
+            gsap.to('.menu1',1,{marginLeft:'0',delay:1.4})
+           // gsap.to('.intro',1,{marginTop:'-100%'})
+            gsap.to('.des',.5,{display:'flex',delay:2})
+
             
             //gsap.to('.ava-corner',1,{delay:1,marginTop:'5%'})
             
             const tl =gsap.timeline() 
            tl
-           .to('.main',1,{marginLeft:'0%'})
-            .to('.menu2',1,{marginLeft:'2%',delay:0.5,opacity:1})
+           .to('.menu2',.7,{marginLeft:'-20%',delay:0.5,opacity:1})
+           .to('.main',.7,{marginLeft:'100%'})
+           .to('.ava-name',.5,{y:'0',})
+          
+        },
+        rightDisAppearMobile: () => {
+            gsap.to('.App',{overflow:'hidden',height:'100vh'})
+            //gsap.to('.menu1',1,{marginLeft:'0',delay:1.4})
+           // gsap.to('.intro',1,{marginTop:'-100%'})
+            gsap.to('.des',.5,{display:'flex',delay:2.7, opacity:1})
+
+            
+            //gsap.to('.ava-corner',1,{delay:1,marginTop:'5%'})
+            
+            const tl =gsap.timeline() 
+           tl
+           .to('.menu2',.7,{marginLeft:'-110%',opacity:1})
+           .to('.main',.7,{marginLeft:'100%'})
+           .to('.ava-name',.5,{y:'0',delay:-0.5})
+           .to('.intro',.5,{top:'30%'})
+        },
+        rightAppearMobile: () => {
+            gsap.to('.App',{overflow:'scroll',height:'auto'})
+           // gsap.to('.menu1',1,{marginLeft:'-100%'})
+            gsap.to('.intro',.5,{top:'-15%'})
+            gsap.to('.des',.5,{opacity:0})
+            
+            //gsap.to('.ava-corner',1,{delay:1,marginTop:'5%'})
             
            
+           
+           gsap.to('.main',1,{marginLeft:'0%',delay:.6})
+           // .to('.menu2',1,{marginLeft:'2%',delay:0.5,opacity:1})
+        },
 
+        navBtn: () => {
+           gsap.to('.menu2',.3,{marginLeft:'0%',opacity:1})
 
+        },
+        navHide: () => {
+           gsap.to('.menu2',.3,{marginLeft:'-105%',opacity:1})
+            
         },
         
         scrollFunc: (state, action) => {
@@ -194,10 +237,14 @@ const contentSlice =createSlice({
             })
             name.map(name => {
                 if (name !== undefined)
-                    gsap.to(window, { duration: 2, scrollTo: { y: `.${name}`, offsetY: 50 }, delay: `${time}` })
+                    gsap.to(window, { duration: .7, scrollTo: { y: `.${name}`, offsetY: 50 }, delay: `${time}` })
+                    
             })
 
-
+             
+        },
+        navBarDisappear:()=>{
+            gsap.to('.menu3',.3,{marginLeft:'-100%'})
         }
     }
 })
@@ -215,13 +262,19 @@ export const expSelector =state =>state.contentReducer.exps
 //===== Export Actions
 export const{
     changeFlag1,
+    toggleFlag,
     projectHoverOn,
     projectHoverOff,
     rightAppear,
     scrollFunc,
     menuHoverOn,
     menuHoverOff,
-    rightAppearMobile
+    rightAppearMobile,
+    navBtn,
+    navBarDisappear,
+    rightDisAppear,
+    rightDisAppearMobile,
+    navHide
 }= contentSlice.actions
 
 //=====EXPORT REDUCER

@@ -1,9 +1,14 @@
 import { Back, gsap } from 'gsap'
-import React from 'react'
-import { useEffect } from 'react'
+import React, { useState } from 'react'
+import { useLayoutEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { projectSelector } from '../features/myweb/contentSlice'
+import useMedia from '../hooks/useMedia'
 const Projects = () => {
+//mediaquery
+//const {xxs,xs,sm,md} =useMedia()
+const [width,setWidth]=useState(window.innerWidth)
+
     //móc projects trong redux ra bằng selector
     let projects = useSelector(projectSelector)
 
@@ -12,32 +17,42 @@ const Projects = () => {
     const hoverOn = (id) => {
 
         act[id].play()
+        console.log(act[id]);
     }
 
     const hoverOff = (id) => {
         act[id].reverse()
+       console.log(act[id]);
+
 
     }
 
-    const act = []
+    let act = []
     // gsap
 
-    useEffect(()=>{
+    useLayoutEffect(()=>{
+       
         gsap.set('.wrap, .wrap0,.wrap1 ', { perspective: 1000 });
         gsap.set('.inner,.inner0, .inner1', { transformStyle: "preserve-3d" });
         gsap.set('.back', { rotationX: -90 });
         gsap.set(['.back', '.front'], { backfaceVisibility: "hidden", transformOrigin: '50% 0' });
-       
+     
         projects.map((project, i) => {
             let tl = gsap.timeline({ paused: true });
-    
+            
             let t = tl
                 .set(`.wraper${i}`, { willChange: "transform" })
                 .to(`.inner${i}`, 0.7, { y: "-90px", rotationX: 90, z: 0.01, zIndex: 2, overwrite: "all", ease: Back.easeOut }, 0);
             act.push(t)
+         
             return act
+            
         })
-    },[])
+        window.addEventListener('resize', ()=>{setWidth(window.innerWidth)})
+       /*  return(
+            ()=>{window.removeEventListener('resize', ()=>{setWidth(window.innerWidth)})}
+        ) */
+    },[width])
      
 
     // mỗi wraper sẽ có 1 bộ timline, variable t riêng dùng .map để tạo. push vào trong array act[]
@@ -47,7 +62,7 @@ const Projects = () => {
 
     return (
 
-        <section className="projects section-container">
+        <section className="projects section-container" id="pro">
             <h2 className="title">Projects</h2>
             <div className="container">
                 

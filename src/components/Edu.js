@@ -8,15 +8,16 @@ const Edu = () => {
     const edus= useSelector(eduSelector)
 
     return (
-        <section className="edu section-container">
+        <section className="edu section-container"  id="education">
             <h2 className="title">Education</h2>
             <div className="container">
             {edus.map((edu,i) => {
                         return (
                             <div key={edu.id} 
-                            className={`flex-content education__items--${edu.id}`}
+                            className={`flex-content education__items--${edu.id} edu-item`}
                             //onMouseOver={()=> circleLight(i)}
                             //onMouseOut={()=>circleDark(i)}
+                           
                             >
                                 
                                 <div className={`num num${i}`}>

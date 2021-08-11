@@ -10,7 +10,8 @@ const Skills = () => {
             skill4: 'Reactjs'
         },
         {
-            title: 'Telecommunication',
+            titleM: 'Telecom',
+            title:'Telecommunication',
             skill1: 'MATLAB',
             skill2: 'RES controller',
             skill3: 'Javascript,Jquery',
@@ -18,7 +19,7 @@ const Skills = () => {
         }
     ]
     return (
-        <section className="skills section-container">
+        <section className="skills section-container" id="skills">
             <h2 className="title">Skills</h2>
             <div className="container">
                 

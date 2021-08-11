@@ -1,5 +1,4 @@
 .menux {
-      
   background-color: transparent;
   position: fixed;
 
@@ -18,12 +17,16 @@
     li {
       list-style: none;
       text-decoration: none;
-      color: rgb(44, 42, 42);
+      //color: rgb(44, 42, 42);
       cursor: pointer;
       padding: 10px;
-      &:hover,&:active{
+      color: #ffffff;
+      // background: #232323;
+      text-shadow: 0 0 5px rgb(42, 6, 245), 0 0 10px rgb(42, 6, 245), 0 0 15px rgb(42, 6, 245), 0 0 20px #3b02bf,
+        0 0 30px #3b02bf, 0 0 40px #3b02bf, 0 0 55px #3b02bf, 0 0 75px #3b02bf;
+      &:hover,
+      &:active {
         transform: scale(1.2);
-        
       }
     }
   }
@@ -32,7 +35,7 @@
   top: 20px;
   left: 0px;
   width: 100%;
-  z-index: 20;
+  z-index: 60;
   // .overlay1 {
   //   right: 0;
   //   top: 0;
@@ -41,25 +44,29 @@
   //   color: white;
   //   z-index: 21;
   // }
-  .nav-btn-container{
+  .nav-btn-container {
     display: none;
     position: fixed;
-    left: 10px;
-    width: 50px;
-    height: 50px;
+    top: 20px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: gray;
+
     //display: flex;
     justify-content: center;
     align-items: center;
-    .nav-btn{
+    cursor: pointer;
+    .nav-btn {
       //display: none;
       height: 1.5px;
       width: 70%;
       background-color: white;
       position: relative;
-      &:before{
-        content:'';
+
+      &:before {
+        content: "";
         height: 1.5px;
         width: 100%;
         position: absolute;
@@ -67,8 +74,8 @@
         top: 10px;
         left: 0;
       }
-      &:after{
-        content:'';
+      &:after {
+        content: "";
         height: 1.5px;
         width: 100%;
         position: absolute;
@@ -103,7 +110,7 @@
 .menu2 {
   top: 60%;
   height: 50%;
-  width: 155px;
+  width: 15%;
   margin-left: -20%;
   z-index: 19;
   transform: translate(0, -50%);
@@ -123,22 +130,65 @@
     li {
       padding: 20px 20px;
       position: relative;
-      &:before{
-        content: '';
+      /*  &:before {
+        content: "";
         position: absolute;
-        bottom:20px;
+        bottom: 20px;
         left: 0;
         height: 1px;
         width: 100%;
         background-color: blue;
-
-      }
+      } */
     }
   }
 }
 
-*{
-    p,
+.hambuger-container {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 50%;
+  position: fixed;
+  top: 20px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+ 
+  .hambuger {
+    position: relative;
+    width: 70%;
+    height: 1px;
+    background-color: white;
+    box-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;;
+   /* box-shadow: 0 0 5px rgb(42, 6, 245), 0 0 10px rgb(42, 6, 245), 0 0 15px rgb(42, 6, 245), 0 0 20px #3b02bf, 0 0 30px #3b02bf, 0 0 40px #3b02bf,
+   0 0 55px #3b02bf, 0 0 75px #3b02bf; */
+    &:before{
+      content:'';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      left: 0;
+      bottom: 5px;
+      background-color: white;
+      box-shadow: inherit;
+    }
+    &:after{
+      content:'';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      left: 0;
+      bottom: -5px;
+      background-color: white;
+      box-shadow: inherit;
+    }
+  }
+}
+* {
+  p,
   .text {
     font-size: 16px;
     font-family: popnormal;
@@ -148,7 +198,7 @@
     font-family: popitalic;
     color: var(--textCl);
   }
-  h1{
+  h1 {
     font-size: var(--fz-h1);
   }
   h1,
@@ -157,7 +207,6 @@
   h4,
   h5 {
     font-family: popbold;
-  
   }
   h1 {
     color: var(--h1Cl);
@@ -171,9 +220,9 @@
     color: var(--hCl);
   }
   //=========================title
-  .title{
+  .title {
     text-align: left;
-    margin-left: 30px;
+    margin: 10px 0 20px 30px;
   }
   //========== timeline==========
   .timeline {
@@ -182,7 +231,7 @@
     justify-content: space-between;
     align-items: center;
     margin-left: 45px;
-  
+
     .circle {
       width: 15px;
       height: 15px;

@@ -7,7 +7,7 @@ const Exp = () => {
     // select exp from store
     const exps= useSelector(expSelector)
     return (
-        <section className="exp section-container">
+        <section className="exp section-container"  id="experience">
             <h2 className="title">Experience</h2>
             <div className="container">
             {exps.map(exp => {
@@ -18,14 +18,14 @@ const Exp = () => {
                                     <div className="line" ></div>
                                 </div>
                                 <div className="period">
-                                <p className="time"> {exp.time1} </p>
-                                <p>To</p>
-                                <p className="time">{exp.time2}</p>
+                                <span className="time"> {exp.time1} </span>
+                                <span> ---  </span>
+                                <span className="time">{exp.time2}</span>
                                 </div>
 
 
                                 <div className="company-task">
-                                    <div className="title">
+                                    <div className="jobtitle">
                                         <h4>{exp.position}</h4>
                                         <h5>{exp.company}</h5>
                                     </div>

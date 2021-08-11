@@ -1,18 +1,30 @@
 import React from 'react';
-import './Style/Variables.scss';
-import NavBar from './components/NavBar';
-import './Style/Mixins.scss';
+import Describe from './components/Describe';
+import Hambuger from './components/Hambuger';
+import Intro from './components/Intro';
+import Main from './components/Main';
+import Menu from './components/Menu';
+import useMedia from './hooks/useMedia';
+
 import './Style/App.scss';
-import './Style/Layout.scss';
 import './Style/Components.scss';
-import Body from './components/Body';
+import './Style/Layout.scss';
+import './Style/Mixins.scss';
+import './Style/Variables.scss';
+
+
 
 function App() {
+
+  const {xxs,xs} = useMedia()
   return (
     <div className="App">
-      
-      <Body/>
-     
+      <Menu/>
+      <Main />
+      <Intro />
+    {xs && <Hambuger/>}
+
+
     </div>
   );
 }

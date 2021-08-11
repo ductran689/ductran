@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer>
+        <section className="footer section-container">
             <div className="logos">
                 <div className="fb">
                     <img src="/images/facebook.svg" alt="" />
@@ -20,7 +20,7 @@ const Footer = () => {
 
                 </div>
             </div>
-        </footer>
+        </section>
     )
 }
 
