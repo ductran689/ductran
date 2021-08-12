@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/ductran/static/css/main.50a493d3.chunk.css",
+    "main.js": "/ductran/static/js/main.b737e3c2.chunk.js",
+    "main.js.map": "/ductran/static/js/main.b737e3c2.chunk.js.map",
+    "runtime-main.js": "/ductran/static/js/runtime-main.6c770bd4.js",
+    "runtime-main.js.map": "/ductran/static/js/runtime-main.6c770bd4.js.map",
+    "static/js/2.b3034930.chunk.js": "/ductran/static/js/2.b3034930.chunk.js",
+    "static/js/2.b3034930.chunk.js.map": "/ductran/static/js/2.b3034930.chunk.js.map",
+    "index.html": "/ductran/index.html",
+    "static/css/main.50a493d3.chunk.css.map": "/ductran/static/css/main.50a493d3.chunk.css.map",
+    "static/js/2.b3034930.chunk.js.LICENSE.txt": "/ductran/static/js/2.b3034930.chunk.js.LICENSE.txt",
+    "static/media/Layout.scss": "/ductran/static/media/black-abstract.1f09e65f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c770bd4.js",
+    "static/js/2.b3034930.chunk.js",
+    "static/css/main.50a493d3.chunk.css",
+    "static/js/main.b737e3c2.chunk.js"
+  ]
+}
