@@ -1,6 +1,7 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 import { gsap } from 'gsap';
-
+import wood from '../../images/Wooder.JPG'
+import gbox from '../../images/Gbox.JPG'
 
 
 // mediaquery
@@ -13,7 +14,7 @@ const contentSlice =createSlice({
             {
                 id: nanoid(),               
                 //title: 'project 1',
-                img: '/images/Wooder.JPG',
+                img: wood,
                 title: 'Wooder landing page',
                 content:'This is my very first front-end product landing page when I started learning and working with CFD, I excelled my ability to use HTML, SCSS, Javascript and Grunt here',
                 isHover: false,
@@ -21,7 +22,7 @@ const contentSlice =createSlice({
             {
                 id: nanoid(),               
                 // title: 'project 2',
-                 img: '/images/Gbox.JPG',
+                 img: gbox,
                  title: 'Gbox- clone website',
                  content:' This is one of website projects when I practiced using HTML,SASS, Javscript to build a simple website',
                  isHover: false,

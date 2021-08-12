@@ -2,6 +2,8 @@ import React, { useEffect,useLayoutEffect } from 'react'
 import {gsap,Bounce} from 'gsap'
 import { TextPlugin } from "gsap/TextPlugin"
 import Describe from './Describe';
+import ava from '../images/avatar-web.png'
+
 const Intro = () => {
 
     //register gsap plugin
@@ -27,7 +29,7 @@ const Intro = () => {
         <section className="intro">
           <div className="ava-name">
           <div className="ava-container">
-            <img src="/images/avatar-web.png" alt="" className="avatar" />
+            <img src= {ava} alt="" className="avatar" />
 
             </div>
                 <h1 className="myname"></h1>
