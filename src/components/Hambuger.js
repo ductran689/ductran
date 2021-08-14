@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import { rightDisAppear, rightAppearMobile, navBtn,navHide,flagSelector,toggleFlag } from '../features/myweb/contentSlice'
-import { useDispatch,useSelector } from 'react-redux'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { flagSelector, navBtn, navHide, toggleFlag } from '../features/myweb/contentSlice'
 const Hambuger = () => {
 
     const dispatch= useDispatch()
     const flag = useSelector(flagSelector)
     const navClick= ()=>{
         dispatch(toggleFlag())
-        console.log(flag);
+        console.log('flag'+flag);
        flag ? dispatch(navBtn()) : dispatch(navHide())
     }
     return (

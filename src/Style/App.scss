@@ -127,12 +127,13 @@
   //============Main===========
   .main {
     width: 85%;
-    margin-left: 100%;
+    margin-left: 100% ;
     margin-top: 5%;
     padding-top: 10px;
     //margin-bottom: 20px;
     background-color: var(--mainBgColor);
     border-radius: 9px;
+    z-index: 20;
 
     //======Skills=========
     .skills {
@@ -494,6 +495,7 @@ $lg-max: ($lg-min - 1); // Large Desktop
             font-size: 10px;
             width: 114px;
             display: block;
+            text-decoration: none;
           }
         }
       }

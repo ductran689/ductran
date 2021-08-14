@@ -3,7 +3,7 @@ import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { rightDisAppearMobile,navHide,changeFlag1, rightDisAppear,flagSelector, menuSelector, navBarDisappear, navBtn, rightAppear, rightAppearMobile, scrollFunc, toggleFlag } from '../features/myweb/contentSlice';
+import { changeFlag, falseFlag, flagSelector, menuSelector, navBtn, navHide, rightAppear, rightAppearMobile, rightDisAppear, rightDisAppearMobile, scrollFunc, toggleFlag } from '../features/myweb/contentSlice';
 import useMedia from '../hooks/useMedia';
 const Menu = () => {
 
@@ -16,14 +16,16 @@ const Menu = () => {
     const menus = useSelector(menuSelector)
     const flag = useSelector(flagSelector)
 //mediaquery
-const {xxs,xs,sm,md,xsMin,smMin,mdMin} = useMedia()
+const {xs} = useMedia()
 
     // event functions
 
     const menuClick1 = (id, time, e) => {
                      
       //  dispatch(changeFlag1())
-        
+      setTimeout(()=>{
+        dispatch(changeFlag())
+    },1500)
         dispatch(scrollFunc({ id, time }))
        dispatch(rightAppear())
     
@@ -31,21 +33,27 @@ const {xxs,xs,sm,md,xsMin,smMin,mdMin} = useMedia()
 
     // vertical menu
     const menuClick2 = (id, time, e) => {
-                     
+        setTimeout(()=>{
+            dispatch(changeFlag())
+        },1500)
         dispatch(scrollFunc({ id, time })) // truyền nhiều params cho action.payload thì bỏ vào trong 1 obj
        //dispatch(rightDisAppear())
 
        if (xs) {
-        dispatch(scrollFunc({ id, time }))
+        setTimeout(() =>{
+            dispatch(scrollFunc({ id, time }))
+        },1300)
         dispatch(rightAppearMobile())
         dispatch(navHide())
-        dispatch(toggleFlag())
+        dispatch(toggleFlag()) 
 
        }
     }
 
     const reverse= ( )=>{
-        
+        setTimeout(()=>{
+            dispatch(falseFlag())
+        },1500)
         if(xs){
             dispatch(rightDisAppearMobile())
             dispatch(toggleFlag())
@@ -54,7 +62,7 @@ const {xxs,xs,sm,md,xsMin,smMin,mdMin} = useMedia()
         }
         
     }
-    const menuClickMobile = (id, time, e) => {
+   /*  const menuClickMobile = (id, time, e) => {
         e.preventDefault();  
         dispatch(toggleFlag())
        
@@ -63,7 +71,7 @@ const {xxs,xs,sm,md,xsMin,smMin,mdMin} = useMedia()
         dispatch(rightAppearMobile())
         dispatch(scrollFunc({ id, time })) // truyền nhiều params cho action.payload thì bỏ vào trong 1 obj
     }
-
+ */
 
     //hover
     

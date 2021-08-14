@@ -1,8 +1,8 @@
-import React, { useEffect,useLayoutEffect } from 'react'
-import {gsap,Bounce} from 'gsap'
-import { TextPlugin } from "gsap/TextPlugin"
+import { Bounce, gsap } from 'gsap';
+import { TextPlugin } from "gsap/TextPlugin";
+import React, { useLayoutEffect } from 'react';
+import ava from '../images/avatar-web.png';
 import Describe from './Describe';
-import ava from '../images/avatar-web.png'
 
 const Intro = () => {
 

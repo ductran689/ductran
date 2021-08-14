@@ -1,7 +1,7 @@
 import { gsap } from 'gsap'
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { rightAppear, rightAppearMobile, toggleFlag } from '../features/myweb/contentSlice'
+import { rightAppear, rightAppearMobile, changeFlag } from '../features/myweb/contentSlice'
 import useMedia from '../hooks/useMedia'
 const Describe = () => {
    /*  // mediaquery
@@ -11,7 +11,7 @@ const Describe = () => {
     const md = useMediaQuery({ query: '(max-width: 1199px)' })
  */
 
-    const{xxs,xs,sm,md,xsMin,smMin,mdMin} =useMedia()
+    const{xs} =useMedia()
     //
     const des = [
         {
@@ -36,8 +36,11 @@ const Describe = () => {
     }, [])
 
     const dispatch = useDispatch()
-    const btnClick = () => {
-        
+    const btnClick = (e) => {
+        e.preventDefault()
+        setTimeout(()=>{
+            dispatch(changeFlag())
+        },1500)
         if(xs ) {
             dispatch(rightAppearMobile())
            
@@ -52,10 +55,10 @@ const Describe = () => {
     }
 
     // ==========mobile===========
-    const btnClickMobile = () => {
+    /* const btnClickMobile = () => {
        // dispatch(toggleFlag())
         dispatch(rightAppearMobile())
-    }
+    } */
     return (
         <div className="des">
             {des.map((des, i) => {
@@ -67,7 +70,7 @@ const Describe = () => {
                     </p>
                 )
             })}
-            <a className="more" onClick={btnClick}> More About Me</a>
+            <a className="more"  onClick={btnClick}> More About Me</a>
 
         </div>
     )

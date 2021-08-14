@@ -1,11 +1,9 @@
 import React from 'react';
-import Describe from './components/Describe';
 import Hambuger from './components/Hambuger';
 import Intro from './components/Intro';
 import Main from './components/Main';
 import Menu from './components/Menu';
 import useMedia from './hooks/useMedia';
-
 import './Style/App.scss';
 import './Style/Components.scss';
 import './Style/Layout.scss';
@@ -14,9 +12,10 @@ import './Style/Variables.scss';
 
 
 
+
 function App() {
 
-  const {xxs,xs} = useMedia()
+  const {xs} = useMedia()
   return (
     <div className="App">
       <Menu/>

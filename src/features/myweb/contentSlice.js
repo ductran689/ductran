@@ -62,6 +62,7 @@ const contentSlice =createSlice({
             },
         ],
         flag: true,
+        mainFlag:false,
         edus:[
             {
                 id: nanoid(),
@@ -106,11 +107,16 @@ const contentSlice =createSlice({
         
     },
     reducers:{
-        changeFlag1: (state) => {
-            state.flag = true
+        changeFlag: (state) => {
+            state.mainFlag = true
+        },
+        falseFlag:(state)=>{
+            state.mainFlag = false
+
         },
         toggleFlag:(state)=>{
             state.flag = !state.flag
+            console.log('flag '+ state.flag);
         },
 
         // projects hover
@@ -149,49 +155,35 @@ const contentSlice =createSlice({
             })
         },
 
-        rightAppear: (state,action) => {
-            
-            gsap.to('.App',{overflow:'scroll',height:'auto'})
-            gsap.to('.menu1',1,{marginLeft:'-100%'})
-           // gsap.to('.intro',1,{marginTop:'-100%'})
-            gsap.to('.des',.5,{display:'none'})
-
-            
-            gsap.to('.ava-corner',1,{delay:1,marginTop:'5%'})
-            
-            const tl =gsap.timeline() 
-           tl
-           .to('.ava-name',.5,{y:'-900px'})
-           .to('.main',.7,{marginLeft:'15%'})
-            .to('.menu2',.7,{marginLeft:0,opacity:1})
-            
-           
-
-
-        },
-        rightDisAppear: () => {
+        
+        rightDisAppear: (state) => {
             gsap.to('.App',{overflow:'hidden',height:'100vh'})
             gsap.to('.menu1',1,{marginLeft:'0',delay:1.4})
            // gsap.to('.intro',1,{marginTop:'-100%'})
-            gsap.to('.des',.5,{display:'flex',delay:2})
-
+            gsap.to('.des',.5,{display:'flex',opacity:1,delay:2})
+           
+               // state.mainFlag = false
+           
             
             //gsap.to('.ava-corner',1,{delay:1,marginTop:'5%'})
             
             const tl =gsap.timeline() 
            tl
-           .to('.menu2',.7,{marginLeft:'-20%',delay:0.5,opacity:1})
+           .to('.menu2',.7,{marginLeft:'-120%',delay:0.5,opacity:1})
            .to('.main',.7,{marginLeft:'100%'})
            .to('.ava-name',.5,{y:'0',})
           
         },
-        rightDisAppearMobile: () => {
+        rightDisAppearMobile: (state) => {
             gsap.to('.App',{overflow:'hidden',height:'100vh'})
-            //gsap.to('.menu1',1,{marginLeft:'0',delay:1.4})
+            gsap.to('.menu1',1,{marginLeft:'0',delay:1.4})
            // gsap.to('.intro',1,{marginTop:'-100%'})
             gsap.to('.des',.5,{display:'flex',delay:2.7, opacity:1})
 
-            
+          
+               // state.mainFlag = false
+           
+
             //gsap.to('.ava-corner',1,{delay:1,marginTop:'5%'})
             
             const tl =gsap.timeline() 
@@ -199,20 +191,44 @@ const contentSlice =createSlice({
            .to('.menu2',.7,{marginLeft:'-110%',opacity:1})
            .to('.main',.7,{marginLeft:'100%'})
            .to('.ava-name',.5,{y:'0',delay:-0.5})
-           .to('.intro',.5,{top:'30%'})
+           .fromTo('.intro',.5,{top:'-100%'},{top:'30%'})
         },
-        rightAppearMobile: () => {
+        rightAppearMobile: (state) => {
             gsap.to('.App',{overflow:'scroll',height:'auto'})
-           // gsap.to('.menu1',1,{marginLeft:'-100%'})
+            gsap.to('.menu1',1,{marginLeft:'-100%'})
             gsap.to('.intro',.5,{top:'-15%'})
             gsap.to('.des',.5,{opacity:0})
             
+               // state.mainFlag = !state.mainFlag
+           
             //gsap.to('.ava-corner',1,{delay:1,marginTop:'5%'})
             
            
            
            gsap.to('.main',1,{marginLeft:'0%',delay:.6})
            // .to('.menu2',1,{marginLeft:'2%',delay:0.5,opacity:1})
+        },
+        rightAppear: (state,action) => {
+            
+            gsap.to('.App',{overflow:'scroll',height:'auto'})
+            gsap.to('.menu1',1,{marginLeft:'-100%'})
+           // gsap.to('.intro',1,{marginTop:'-100%'})
+            gsap.to('.des',.5,{display:'none'})
+           
+               //state.mainFlag = !state.mainFlag
+          
+            
+            gsap.to('.ava-corner',1,{delay:1,marginTop:'5%'})
+            
+            const tl =gsap.timeline() 
+           tl
+           .to('.ava-name',.5,{y:'-1000px'})
+           .to('.main',.7,{marginLeft:'15%'})
+            .to('.menu2',.7,{marginLeft:0,opacity:1})
+            
+           
+
+
         },
 
         navBtn: () => {
@@ -260,9 +276,11 @@ export const menuSelector = state => state.contentReducer.menu
 export const menuFlagSelector = state => state.contentReducer.menuFlag
 export const eduSelector =state => state.contentReducer.edus
 export const expSelector =state =>state.contentReducer.exps
+export const mainFlagSelector =state => state.contentReducer.mainFlag
 //===== Export Actions
 export const{
-    changeFlag1,
+    changeFlag,
+    falseFlag,
     toggleFlag,
     projectHoverOn,
     projectHoverOff,
@@ -275,7 +293,8 @@ export const{
     navBarDisappear,
     rightDisAppear,
     rightDisAppearMobile,
-    navHide
+    navHide,
+    
 }= contentSlice.actions
 
 //=====EXPORT REDUCER
