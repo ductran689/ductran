@@ -1,7 +1,7 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 import { gsap } from 'gsap';
-import wood from '../../images/Wooder.JPG'
-import gbox from '../../images/Gbox.JPG'
+import wood from '../../images/Wooder.jpg'
+import gbox from '../../images/Gbox.jpg'
 
 
 // mediaquery

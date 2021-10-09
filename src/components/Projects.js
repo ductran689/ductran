@@ -79,7 +79,7 @@ const Projects = () => {
 
                 <div className="projects__items">
                     {projects.map((project, i) => {
-
+                        console.log(project.img);
 
                         return (
                             <div className={`wraper wraper${i}`}
